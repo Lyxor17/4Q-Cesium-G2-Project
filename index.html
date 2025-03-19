@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	 <head>
+	 <title>4 Pics, 1 Word Game</title>
+		<link rel="stylesheet" href="styles.css" />
+		<style>
+				body {
+				font-family: Arial, sans-serif;
+				background-color: #f4f4f9;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 100vh;
+			}
+
+				.game-container {
+				background: #ffffff;
+				padding: 20px;
+				border-radius: 8px;
+				box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+				width: 350px;
+				text-align: center;
+			}
+
+				.image-grid {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				gap: 5px;
+				margin-bottom: 10px;a
+			}
+
+				img {
+				width: 100px;
+				height: 100px;
+				object-fit: cover;
+				border-radius: 5px;
+			}
+
+				input, button {
+				width: 100%;
+				padding: 10px;
+				margin-top: 5px;
+				border-radius: 5px;
+				border: 1px solid #ccc;
+			}
+
+				button {
+				background-color: #4CAF50;
+				color: white;
+				cursor: pointer;
+				transition: background-color 0.3s;
+			}
+
+				button:hover {
+				background-color: #45a049;
+			}
+
+				#feedback {
+				margin-top: 10px;
+				font-size: 16px;
+				color: #333;
+			}
+
+				#score {
+				font-weight: bold;
+			}
+
+		</style>
+     </head>
+<body>
+    <div class="game-container">
+        <h1>4 Pics, 1 Word</h1>
+        
+		<div class="image-grid">
+            
+			<img id="img1" src="" alt="Image 1" />
+            <img id="img2" src="" alt="Image 2" />
+            <img id="img3" src="" alt="Image 3" />
+            <img id="img4" src="" alt="Image 4" />
+     
+		</div>
+        
+		<input type="text" id="answer-input" placeholder="Your Answer" />
+        <button onclick="checkAnswer()">Submit</button>
+        <button onclick="useHint()">Hint (-1 pt)</button>
+        <p id="feedback"></p>
+        <p>Score: <span id="score">0</span></p>
+        <button onclick="nextRound()">Next</button>
+    </div>
+
+    <script src="4Pics1Word.js"></script>
+</body>
+</html>
