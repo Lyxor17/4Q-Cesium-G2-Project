@@ -1,89 +1,148 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>4 Pics, 1 Word Game</title>
-    <link rel="stylesheet" href="styles.css" />
     <style>
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f9;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-      }
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(to right, #ff9966, #ff5e62);
+            padding: 20px;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            border: 3px solid #ff5e62;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            margin: auto;
+            display: none; /* Hidden until game starts */
+        }
+        #rules-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            border: 3px solid #ffcc00;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            margin: auto;
+        }
+        #username-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            border: 3px solid #4CAF50;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            margin: auto;
+        }
+        input, button {
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 80%;
+        }
+        button {
+            background-color: #ff5e62;
+            color: white;
+            cursor: pointer;
+            border: none;
+            width: 85%;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #ff3b47;
+        }
+        .image-grid img {
+            width: 120px;
+            height: 120px;
+            margin: 5px;
+            border: 2px solid #ff5e62;
+            border-radius: 5px;
+        }
+        ul {
+            text-align: left;
+            display: inline-block;
+            padding: 10px;
+        }
+        ul li {
+            margin: 5px 0;
+            font-weight: bold;
+        }
+		
+		.container {
+    background: #fff;
+    padding: 40px; /* More padding for spacing */
+    border-radius: 20px;
+    border: 8px solid #ff5e62; /* Thicker border */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    max-width: 90vw; /* Responsive width */
+    max-height: 90vh; /* Responsive height */
+    margin: auto;
+}
 
-      .game-container {
-        background: #ffffff;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        width: 350px;
-        text-align: center;
-      }
+.image-grid {
+    display: flex;
+    flex-wrap: wrap; /* Ensure it works in portrait mode */
+    justify-content: center;
+    gap: 15px; /* Space between images */
+}
 
-      .image-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 5px;
-        margin-bottom: 10px;
-      }
+.image-grid img {
+    width: 180px; /* Bigger images */
+    height: 180px;
+    margin: 10px;
+    border: 6px solid #ff5e62; /* Thicker image border */
+    border-radius: 15px;
+}
 
-      img {
-        width: 100px;
-        height: 100px;
-        object-fit: cover;
-        border-radius: 5px;
-      }
-
-      input,
-      button {
-        width: 100%;
-        padding: 10px;
-        margin-top: 5px;
-        border-radius: 5px;
-        border: 1px solid #ccc;
-      }
-
-      button {
-        background-color: #4CAF50;
-        color: white;
-        cursor: pointer;
-        transition: background-color 0.3s;
-      }
-
-      button:hover {
-        background-color: #45a049;
-      }
-
-      #feedback {
-        margin-top: 10px;
-        font-size: 16px;
-        color: #333;
-      }
-
-      #score {
-        font-weight: bold;
-      }
     </style>
-  </head>
-  <body>
-    <div class="game-container">
-      <h1>4 Pics, 1 Word</h1>
-      <div class="image-grid">
-        <img id="img1" src="" alt="Image 1" />
-        <img id="img2" src="" alt="Image 2" />
-        <img id="img3" src="" alt="Image 3" />
-        <img id="img4" src="" alt="Image 4" />
-      </div>
-      <input type="text" id="answer-input" placeholder="Your Answer" />
-      <button onclick="checkAnswer()">Submit</button>
-      <button onclick="useHint()">Hint (-1 pt)</button>
-      <p id="feedback"></p>
-      <p>Score: <span id="score">0</span></p>
-      <button onclick="nextRound()">Next</button>
+</head>
+<body>
+
+    <div id="rules-container">
+        <h1>4 Pics, 1 Word!</h1>
+        <p>Guess the word that connects the four images.</p>
+
+        <h2>Game Rules:</h2>
+        <ul>
+            <li>You will see 4 images that hint at a common word.</li>
+            <li>Type your answer in the input box and submit.</li>
+            <li>Each correct answer gives you points.</li>
+            <li>You can use hints but they cost points.</li>
+        </ul>
     </div>
-    <!-- Ensure the external JS file is named 4Pics1Word.js -->
+
+    <div id="username-container">
+        <h2>Enter Your Username</h2>
+        <form onsubmit="saveUsername(); return false;">
+            <input type="text" id="username" placeholder="Enter username" required>
+            <button type="submit">Start Game</button>
+        </form>
+        <p id="greeting"></p>
+    </div>
+
+    <div id="game-container" class="container">
+        <div class="image-grid">
+            <img id="img1" src="" alt="Image 1">
+            <img id="img2" src="" alt="Image 2">
+            <img id="img3" src="" alt="Image 3">
+            <img id="img4" src="" alt="Image 4">
+        </div>
+
+        <form onsubmit="checkAnswer(); return false;">
+            <input type="text" id="answer-input" placeholder="Your Answer" required>
+            <button type="submit">Submit</button>
+        </form>
+        
+        <button onclick="useHint()">Hint (-1 pt)</button>
+        <p id="feedback"></p>
+        <p>Score: <span id="score">0</span></p>
+        <button id="next-round-btn" onclick="nextRound()">Next Round</button>
+    </div>
+
     <script src="4Pics1Word.js"></script>
-  </body>
+</body>
 </html>
