@@ -4,21 +4,21 @@ let score = 0;
 
 const levels = {
     easy: [
-        { images: ["img1.jpg", "img2.jpg", "img3.jpg", "img4.jpg"], answer: "movie", hint: "For entertainment" },
-        { images: ["img5.jpg", "img6.jpg", "img7.jpg", "img8.jpg"], answer: "photo", hint: "Taken by camera" }
+        { images: ["EASY/img1.jpg", "EASY/img2.jpg", "EASY/img3.jpg", "EASY/img4.jpg"], answer: "movie", hint: "For entertainment" },
+        { images: ["EASY/img5.jpg", "EASY/img6.jpg", "EASY/img7.jpg", "EASY/img8.jpg"], answer: "photo", hint: "Taken by camera" }
     ],
     medium: [
-        { images: ["img9.jpg", "img10.jpg", "img11.jpg", "img12.jpg"], answer: "patch", hint: "Cover up for wound" },
-        { images: ["img13.jpg", "img14.jpg", "img15.jpg", "img16.jpg"], answer: "bunch", hint: "A group" }
+        { images: ["MEDIUM/img9.jpg", "MEDIUM/img10.jpg", "MEDIUM/img11.jpg", "MEDIUM/img12.jpg"], answer: "patch", hint: "Cover up for wound" },
+        { images: ["MEDIUM/img13.jpg", "MEDIUM/img14.jpg", "MEDIUM/img15.jpg", "MEDIUM/img16.jpg"], answer: "bunch", hint: "A group" }
     ],
     hard: [
-        { images: ["img17.jpg", "img18.jpg", "img19.jpg", "img20.jpg"], answer: "cloth", hint: "Wearable" },
-        { images: ["img21.jpg", "img22.jpg", "img23.jpg", "img24.jpg"], answer: "light", hint: "Bright" }
+        { images: ["HARD/img17.jpg", "HARD/img18.jpg", "HARD/img19.jpg", "HARD/img20.jpg"], answer: "cloth", hint: "Wearable" },
+        { images: ["HARD/img21.jpg", "HARD/img22.jpg", "HARD/img23.jpg", "HARD/img24.jpg"], answer: "light", hint: "Bright" }
     ],
     extreme: [
-        { images: ["img25.jpg", "img26.jpg", "img27.jpg", "img28.jpg"], answer: "shadow", hint: "Opposite of light" },
-        { images: ["img29.jpg", "img30.jpg", "img31.jpg", "img32.jpg"], answer: "island", hint: "Paradise" },
-        { images: ["img33.jpg", "img34.jpg", "img35.jpg", "img36.jpg"], answer: "battle", hint: "Combat" }
+        { images: ["EXTREME/img25.jpg", "EXTREME/img26.jpg", "EXTREME/img27.jpg", "EXTREME/img28.jpg"], answer: "shadow", hint: "Opposite of light" },
+        { images: ["EXTREME/img29.jpg", "EXTREME/img30.jpg", "EXTREME/img31.jpg", "EXTREME/img32.jpg"], answer: "island", hint: "Paradise" },
+        { images: ["EXTREME/img33.jpg", "EXTREME/img34.jpg", "EXTREME/img35.jpg", "EXTREME/img36.jpg"], answer: "battle", hint: "Combat" }
     ]
 };
 
