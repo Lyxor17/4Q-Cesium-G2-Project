@@ -11,14 +11,13 @@
         }
         .container {
             background: #fff;
-            padding: 40px; 
-            border-radius: 20px;
-            border: 8px solid #ff5e62;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-            max-width: 90vw;
-            max-height: 90vh;
+            padding: 20px;
+            border-radius: 10px;
+            border: 3px solid #ff5e62;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
             margin: auto;
-            display: none;
+            display: none; 
         }
         #rules-container {
             background: #fff;
@@ -56,18 +55,12 @@
         button:hover {
             background-color: #ff3b47;
         }
-        .image-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-        }
         .image-grid img {
-            width: 180px;
-            height: 180px;
-            margin: 10px;
-            border: 6px solid #ff5e62;
-            border-radius: 15px;
+            width: 120px;
+            height: 120px;
+            margin: 5px;
+            border: 2px solid #ff5e62;
+            border-radius: 5px;
         }
         ul {
             text-align: left;
@@ -78,11 +71,33 @@
             margin: 5px 0;
             font-weight: bold;
         }
-        /* Center the Next Round button */
-        #next-round-btn {
-            display: block;
-            margin: 20px auto;
-        }
+		
+        .container {
+  	    background: #fff;
+    	    padding: 40px; 
+    	    border-radius: 20px;
+   	    border: 8px solid #ff5e62; 
+   	    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  	    max-width: 90vw; 
+  	    max-height: 90vh; 
+  	    margin: auto;
+}
+
+	.image-grid {
+	    display: flex;
+ 	    flex-wrap: wrap; 
+  	    justify-content: center;
+ 	    gap: 15px; /* Space between images */
+}
+
+	.image-grid img {
+ 	   width: 180px; 
+ 	   height: 180px;
+	   margin: 10px;
+	   border: 6px solid #ff5e62; 
+	   border-radius: 15px;
+}
+
     </style>
 </head>
 <body>
@@ -101,4 +116,33 @@
     </div>
 
     <div id="username-container">
-        ⬤
+        <h2>Enter Your Username</h2>
+        <form onsubmit="saveUsername(); return false;">
+            <input type="text" id="username" placeholder="Enter username" required>
+            <button type="submit">Start Game</button>
+        </form>
+        <p id="greeting"></p>
+    </div>
+
+    <div id="game-container" class="container">
+        <div class="image-grid">
+            <img id="img1" src="" alt="Image 1">
+            <img id="img2" src="" alt="Image 2">
+            <img id="img3" src="" alt="Image 3">
+            <img id="img4" src="" alt="Image 4">
+        </div>
+
+        <form onsubmit="checkAnswer(); return false;">
+            <input type="text" id="answer-input" placeholder="Your Answer" required>
+            <button type="submit">Submit</button>
+        </form>
+        
+        <button onclick="useHint()">Hint (-1 pt)</button>
+        <p id="feedback"></p>
+        <p>Score: <span id="score">0</span></p>
+        <button id="next-round-btn" onclick="nextRound()">Next Round</button>
+    </div>
+
+    <script src="4Pics1Word.js"></script>
+</body>
+</html>
