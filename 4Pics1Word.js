@@ -49,9 +49,8 @@ function loadRound() {
 
     document.getElementById("answer-input").value = "";
     document.getElementById("feedback").textContent = "";
-
-    // Always show the Next Round button
-    document.getElementById("next-round-btn").style.display = "block";
+    document.getElementById("next-round-btn").style.display = 
+        currentRound >= levels[currentLevel].length - 1 ? "none" : "block"; 
 }
 
 function checkAnswer() {
@@ -91,4 +90,19 @@ function nextRound() {
 
 function resetGame() {
     currentLevel = "easy";
-    current
+    currentRound = 0;
+    score = 0;
+    document.getElementById("score").textContent = score;
+    document.getElementById("username-container").style.display = "block";
+    document.getElementById("game-container").style.display = "none";
+    document.getElementById("rules-container").style.display = "block";
+}
+
+
+let storedUsername = localStorage.getItem("username");
+if (storedUsername) {
+    document.getElementById("greeting").textContent = "Welcome back, " + storedUsername + "!";
+    document.getElementById("username-container").style.display = "block"; 
+    document.getElementById("rules-container").style.display = "block";
+    document.getElementById("game-container").style.display = "none";
+}
