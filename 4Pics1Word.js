@@ -40,6 +40,7 @@ function showGameScreen() {
 }
 
 function loadRound() {
+    alert('lets start the game!');
     let round = levels[currentLevel][currentRound];
 
     document.getElementById("img1").src = round.images[0];
