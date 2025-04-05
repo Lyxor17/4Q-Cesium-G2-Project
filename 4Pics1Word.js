@@ -22,11 +22,30 @@ const levels = {
     ]
 };
 
+// Function to set a cookie with a specified expiration (in days)
+function setCookie(name, value, days) {
+    let date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    let expires = "expires=" + date.toUTCString();
+    document.cookie = name + "=" + value + ";" + expires + ";path=/";
+    
+    // Log the expiration date, current day and month in the console
+    console.log("Cookie set:");
+    console.log("Name:", name);
+    console.log("Value:", value);
+    console.log("Expiration Date:", date.toUTCString());
+    console.log("Current Day:", date.getDate());
+    console.log("Current Month:", date.getMonth() + 1);
+}
+
 function saveUsername() {
     let username = document.getElementById("username").value.trim();
 
     if (username) {
+        // Save username in localStorage
         localStorage.setItem("username", username);
+        // Also save username in a cookie with a 30-day expiration
+        setCookie("username", username, 30);
         document.getElementById("greeting").textContent = "Welcome, " + username + "!";
         showGameScreen();
     }
@@ -98,7 +117,6 @@ function resetGame() {
     document.getElementById("game-container").style.display = "none";
     document.getElementById("rules-container").style.display = "block";
 }
-
 
 let storedUsername = localStorage.getItem("username");
 if (storedUsername) {
