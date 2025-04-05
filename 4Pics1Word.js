@@ -1,7 +1,12 @@
-let currentLevel = "easy";
+// Define the order of difficulties.
+const difficulties = ["easy", "medium", "hard", "extreme"];
+let currentDifficultyIndex = 0;
+let currentLevel = difficulties[currentDifficultyIndex];
 let currentRound = 0;
 let score = 0;
 
+// Each difficulty's rounds:
+// easy, medium, hard have 2 rounds each; extreme has 3 rounds.
 const levels = {
     easy: [
         { images: ["EASY/img1.jpg", "EASY/img2.jpg", "EASY/img3.jpg", "EASY/img4.jpg"], answer: "movie", hint: "For entertainment" },
@@ -28,23 +33,13 @@ function setCookie(name, value, days) {
     date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
     let expires = "expires=" + date.toUTCString();
     document.cookie = name + "=" + value + ";" + expires + ";path=/";
-    
-    // Log the expiration date, current day and month in the console
-    console.log("Cookie set:");
-    console.log("Name:", name);
-    console.log("Value:", value);
-    console.log("Expiration Date:", date.toUTCString());
-    console.log("Current Day:", date.getDate());
-    console.log("Current Month:", date.getMonth() + 1);
+    console.log("Cookie set:", name, value, date.toUTCString(), "Day:", date.getDate(), "Month:", date.getMonth() + 1);
 }
 
 function saveUsername() {
     let username = document.getElementById("username").value.trim();
-
     if (username) {
-        // Save username in localStorage
         localStorage.setItem("username", username);
-        // Also save username in a cookie with a 30-day expiration
         setCookie("username", username, 30);
         document.getElementById("greeting").textContent = "Welcome, " + username + "!";
         showGameScreen();
@@ -59,24 +54,31 @@ function showGameScreen() {
 }
 
 function loadRound() {
-    alert('lets start the game!');
+    // Alert only on the very first round of the game.
+    if (currentDifficultyIndex === 0 && currentRound === 0) {
+        alert("Let's start the game!");
+    }
     let round = levels[currentLevel][currentRound];
-
     document.getElementById("img1").src = round.images[0];
     document.getElementById("img2").src = round.images[1];
     document.getElementById("img3").src = round.images[2];
     document.getElementById("img4").src = round.images[3];
-
     document.getElementById("answer-input").value = "";
     document.getElementById("feedback").textContent = "";
-
-    // Always show the Next Round button and update its text based on the round.
-    let nextRoundBtn = document.getElementById("next-round-btn");
-    nextRoundBtn.style.display = "block";
-    if (currentRound >= levels[currentLevel].length - 1) {
-        nextRoundBtn.textContent = "Finish Game";
+    
+    // Update the Next button text:
+    let nextBtn = document.getElementById("next-round-btn");
+    nextBtn.style.display = "block";
+    // If more rounds remain in this difficulty:
+    if (currentRound < levels[currentLevel].length - 1) {
+        nextBtn.textContent = "Next Round";
     } else {
-        nextRoundBtn.textContent = "Next Round";
+        // End of current difficulty.
+        if (currentLevel !== "extreme") {
+            nextBtn.textContent = "Next Level";
+        } else {
+            nextBtn.textContent = "Finish Game";
+        }
     }
 }
 
@@ -91,7 +93,6 @@ function checkAnswer() {
     } else {
         feedback.textContent = "❌ Try Again!";
     }
-    
     document.getElementById("score").textContent = score;
 }
 
@@ -106,17 +107,31 @@ function useHint() {
 }
 
 function nextRound() {
+    // If there are rounds left in the current difficulty, go to the next round.
     if (currentRound < levels[currentLevel].length - 1) {
         currentRound++;
         loadRound();
     } else {
-        alert("🎉 Game Over! Final Score: " + score);
-        resetGame();
+        // End of current difficulty.
+        if (currentLevel !== "extreme") {
+            // Advance to the next difficulty.
+            currentDifficultyIndex++;
+            currentLevel = difficulties[currentDifficultyIndex];
+            currentRound = 0;
+            alert("Advancing to " + currentLevel + " level!");
+            loadRound();
+        } else {
+            // Last round of extreme; finish game.
+            alert("🎉 Game Over! Final Score: " + score);
+            resetGame();
+        }
     }
 }
 
 function resetGame() {
-    currentLevel = "easy";
+    // Reset back to the beginning (easy level)
+    currentDifficultyIndex = 0;
+    currentLevel = difficulties[currentDifficultyIndex];
     currentRound = 0;
     score = 0;
     document.getElementById("score").textContent = score;
