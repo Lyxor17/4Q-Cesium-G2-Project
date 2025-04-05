@@ -27,23 +27,52 @@ const levels = {
     ]
 };
 
-// Function to set a cookie with a specified expiration (in days)
+// Function to set a cookie with a specified expiration (in days) and return the expiration date as a string.
 function setCookie(name, value, days) {
     let date = new Date();
     date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
     let expires = "expires=" + date.toUTCString();
     document.cookie = name + "=" + value + ";" + expires + ";path=/";
-    console.log("Cookie set:", name, value, date.toUTCString(), "Day:", date.getDate(), "Month:", date.getMonth() + 1);
+    console.log("Cookie set:", name, value, date.toUTCString());
+    return date.toUTCString();
 }
 
 function saveUsername() {
     let username = document.getElementById("username").value.trim();
     if (username) {
+        // Save username in local storage.
         localStorage.setItem("username", username);
-        setCookie("username", username, 30);
+        // Set cookie with a 30-day expiration and capture the expiration date.
+        let expirationDate = setCookie("username", username, 30);
+        // Save the expiration date in local storage.
+        localStorage.setItem("username_expiration", expirationDate);
+        // Update greeting.
         document.getElementById("greeting").textContent = "Welcome, " + username + "!";
+        // Update storage info display.
+        updateStorageInfo();
         showGameScreen();
     }
+}
+
+// Display the username and cookie expiration information from both storages.
+function updateStorageInfo() {
+    let storedUsername = localStorage.getItem("username");
+    let storedExpiration = localStorage.getItem("username_expiration");
+    let storageInfo = "";
+    if (storedUsername && storedExpiration) {
+        storageInfo += "Local Storage - Username: " + storedUsername + ", Expires on: " + storedExpiration;
+    }
+    // Also show cookie info by parsing document.cookie (assuming a simple cookie structure)
+    let cookies = document.cookie.split("; ").reduce((acc, cookieStr) => {
+        let [key, value] = cookieStr.split("=");
+        acc[key] = value;
+        return acc;
+    }, {});
+    if (cookies.username) {
+        // We already know the expiration date from local storage.
+        storageInfo += " | Cookie - Username: " + cookies.username + ", Expires on: " + storedExpiration;
+    }
+    document.getElementById("storage-info").textContent = storageInfo;
 }
 
 function showGameScreen() {
@@ -140,9 +169,11 @@ function resetGame() {
     document.getElementById("rules-container").style.display = "block";
 }
 
+// On page load, if a username exists in local storage, update the greeting and storage info.
 let storedUsername = localStorage.getItem("username");
 if (storedUsername) {
     document.getElementById("greeting").textContent = "Welcome back, " + storedUsername + "!";
+    updateStorageInfo();
     document.getElementById("username-container").style.display = "block"; 
     document.getElementById("rules-container").style.display = "block";
     document.getElementById("game-container").style.display = "none";
