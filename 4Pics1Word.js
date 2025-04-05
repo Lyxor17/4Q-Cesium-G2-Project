@@ -69,8 +69,15 @@ function loadRound() {
 
     document.getElementById("answer-input").value = "";
     document.getElementById("feedback").textContent = "";
-    document.getElementById("next-round-btn").style.display = 
-        currentRound >= levels[currentLevel].length - 1 ? "none" : "block"; 
+
+    // Always show the Next Round button and update its text based on the round.
+    let nextRoundBtn = document.getElementById("next-round-btn");
+    nextRoundBtn.style.display = "block";
+    if (currentRound >= levels[currentLevel].length - 1) {
+        nextRoundBtn.textContent = "Finish Game";
+    } else {
+        nextRoundBtn.textContent = "Next Round";
+    }
 }
 
 function checkAnswer() {
