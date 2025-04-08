@@ -4,6 +4,7 @@ let currentDifficultyIndex = 0;
 let currentLevel = difficulties[currentDifficultyIndex];
 let currentRound = 0;
 let score = 0;
+let answered = false;
 
 // Each difficulty's rounds:
 // easy, medium, hard have 2 rounds each; extreme has 3 rounds.
@@ -116,9 +117,10 @@ function checkAnswer() {
     let correctAnswer = levels[currentLevel][currentRound].answer;
     let feedback = document.getElementById("feedback");
 
-    if (answerInput === correctAnswer) {
+    if (answerInput === correctAnswer && !answered) {
         feedback.textContent = "✅ Correct!";
         score += 5;
+        answered = true;
     } else {
         feedback.textContent = "❌ Try Again!";
     }
@@ -137,6 +139,7 @@ function useHint() {
 
 function nextRound() {
     // If there are rounds left in the current difficulty, go to the next round.
+    answered = false;
     if (currentRound < levels[currentLevel].length - 1) {
         currentRound++;
         loadRound();
