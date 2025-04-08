@@ -109,7 +109,7 @@
     <div id="username-container">
         <h2>Enter Your Username</h2>
         <form onsubmit="saveUsername(); return false;">
-            <input type="text" id="username" placeholder="Enter username" required>
+            <input type="text" id="username" placeholder="Enter username" pattern="[A-Za-z|^0-9]" required>
             <button type="submit">Start Game</button>
         </form>
         <p id="greeting"></p>
@@ -126,7 +126,7 @@
         </div>
 
         <form onsubmit="checkAnswer(); return false;">
-            <input type="text" id="answer-input" placeholder="Your Answer" required>
+            <input type="text" id="answer-input" placeholder="Your Answer" pattern="[a-zA-Z0-9]+" required>
             <button type="submit">Submit</button>
         </form>
         
