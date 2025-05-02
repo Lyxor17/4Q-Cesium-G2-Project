@@ -172,4 +172,11 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById("rules-container").style.display = "block";
     document.getElementById("game-container").style.display = "none";
   }
+
+  function goToHomepage() {
+  document.getElementById("username-container").style.display = "block";
+  document.getElementById("rules-container").style.display = "block";
+  document.getElementById("game-container").style.display = "none";
+}
+
 });
