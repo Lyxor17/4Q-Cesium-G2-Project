@@ -7,16 +7,15 @@ let score = 0;
 let answered = false;
 
 
-let highScore = 0;
+let highScore = parseInt(localStorage.getItem('highscore')) || 0;
+document.getElementById("highscore").textContent = "High score: " + highScore;
 
-function highscore () {
-        if ( score > highScore ) {
-            
-            highScore = score;
-         
-         
-        }
-    document.getElementById("highscore").innerHTML = "High score:" + highScore;
+function highscore() {
+  if (score > highScore) {
+    highScore = score;
+    localStorage.setItem('highscore', highScore);
+  }
+  document.getElementById("highscore").textContent = "High score: " + highScore;
 }
 
 // Each difficulty's rounds:
