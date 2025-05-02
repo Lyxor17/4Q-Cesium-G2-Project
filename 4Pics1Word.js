@@ -40,15 +40,7 @@ const levels = {
     ]
 };
 
-// Function to set a cookie with a specified expiration (in days) and return the expiration date as a string.
-function setCookie(name, value, days) {
-    let date = new Date();
-    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-    let expires = "expires=" + date.toUTCString();
-    document.cookie = name + "=" + value + ";" + expires + ";path=/";
-    console.log("Cookie set:", name, value, date.toUTCString());
-    return date.toUTCString();
-}
+// Function to set a cookie with a specified expiration (in days) and return the expiration date as a string //
 
 function saveUsername() {
     let username = document.getElementById("username").value.trim();
