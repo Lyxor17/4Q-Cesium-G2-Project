@@ -6,6 +6,19 @@ let currentRound = 0;
 let score = 0;
 let answered = false;
 
+
+let highScore = 0;
+
+function highscore () {
+        if ( score > highScore ) {
+            
+            highScore = score;
+         
+         
+        }
+    document.getElementById("highscore").innerHTML = "High score:" + highScore;
+}
+
 // Each difficulty's rounds:
 // easy, medium, hard have 2 rounds each; extreme has 3 rounds.
 const levels = {
