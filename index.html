@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>4 Pics, 1 Word Game</title>
     <style>
         body {
@@ -11,32 +12,29 @@
         }
         .container {
             background: #fff;
-            padding: 40px; 
+            padding: 40px;
             border-radius: 20px;
-            border: 8px solid #ff5e62; 
+            border: 8px solid #ff5e62;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            max-width: 90vw; 
-            max-height: 90vh; 
+            max-width: 90vw;
+            max-height: 90vh;
             margin: auto;
-            display: none; 
+            display: none;
         }
-        #rules-container {
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            border: 3px solid #FFC0CB;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            max-width: 600px;
-            margin: auto;
-        }
+        #rules-container,
         #username-container {
             background: #fff;
             padding: 20px;
             border-radius: 10px;
             border: 3px solid #FFC0CB;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 20px auto;
+        }
+        #username-container {
             max-width: 400px;
-            margin: auto;
+        }
+        #rules-container {
+            max-width: 600px;
         }
         input, button {
             padding: 10px;
@@ -57,15 +55,15 @@
         }
         .image-grid {
             display: flex;
-            flex-wrap: wrap; 
+            flex-wrap: wrap;
             justify-content: center;
-            gap: 15px; 
+            gap: 15px;
         }
         .image-grid img {
-            width: 180px; 
+            width: 180px;
             height: 180px;
             margin: 10px;
-            border: 6px solid #ff5e62; 
+            border: 6px solid #ff5e62;
             border-radius: 15px;
         }
         ul {
@@ -77,13 +75,11 @@
             margin: 5px 0;
             font-weight: bold;
         }
-        /* Center the Next Round button */
         #next-round-btn {
             margin: 20px auto 0;
             display: block;
             width: 80%;
         }
-        /* New style for storage info */
         #storage-info {
             margin-top: 10px;
             font-style: italic;
@@ -93,50 +89,56 @@
     </style>
 </head>
 <body>
-
-    <div id="rules-container">
+    <header>
         <h1>4 Pics, 1 Word!</h1>
         <p>Guess the word that connects the four images.</p>
-        <h2>Game Rules:</h2>
-        <ul>
-            <li>You will see 4 images that hint at a common word.</li>
-            <li>Type your answer in the input box and submit.</li>
-            <li>Each correct answer gives you points.</li>
-            <li>You can use hints but they cost points.</li>
-        </ul>
-    </div>
+    </header>
 
-    <div id="username-container">
-        <h2>Enter Your Username</h2>
-        <form onsubmit="saveUsername(); return false;">
-            <input type="text" id="username" placeholder="Enter username" pattern="[a-zA-Z0-9]+" required>
-            <button type="submit">Start Game</button>
-        </form>
-        <p id="greeting"></p>
-        <!-- New element to show stored information -->
-        <div id="storage-info"></div>
-    </div>
+    <main>
+        <section id="rules-container">
+            <article>
+                <h2>Game Rules:</h2>
+                <ul>
+                    <li>You will see 4 images that hint at a common word.</li>
+                    <li>Type your answer in the input box and submit.</li>
+                    <li>Each correct answer gives you points.</li>
+                    <li>You can use hints but they cost points.</li>
+                </ul>
+            </article>
+        </section>
 
-    <div id="game-container" class="container">
-        <div class="image-grid">
-            <img id="img1" src="" alt="Image 1">
-            <img id="img2" src="" alt="Image 2">
-            <img id="img3" src="" alt="Image 3">
-            <img id="img4" src="" alt="Image 4">
-        </div>
+        <section id="username-container">
+            <h2>Enter Your Username</h2>
+            <form onsubmit="saveUsername(); return false;">
+                <input type="text" id="username" placeholder="Enter username" pattern="[a-zA-Z0-9]+" required>
+                <button type="submit">Start Game</button>
+            </form>
+            <p id="greeting"></p>
+            <div id="storage-info"></div>
+        </section>
 
-        <form onsubmit="checkAnswer(); return false;">
-            <input type="text" id="answer-input" placeholder="Your Answer" pattern="[a-zA-Z0-9]+" required>
-            <button type="submit">Submit</button>
-        </form>
-        
-        <button onclick="useHint()">Hint (-1 pt)</button>
-        <p id="feedback"></p>
-        <p>Score: <span id="score">0</span></p>
-        <button id="next-round-btn" onclick="nextRound()">Next Round</button>
-    </div>
+        <section id="game-container" class="container">
+            <article class="image-grid">
+                <img id="img1" src="" alt="Image 1">
+                <img id="img2" src="" alt="Image 2">
+                <img id="img3" src="" alt="Image 3">
+                <img id="img4" src="" alt="Image 4">
+            </article>
+
+            <form onsubmit="checkAnswer(); return false;">
+                <input type="text" id="answer-input" placeholder="Your Answer" pattern="[a-zA-Z0-9]+" required>
+                <button type="submit">Submit</button>
+            </form>
+
+            <button onclick="useHint()">Hint (-1 pt)</button>
+            <p id="feedback"></p>
+            <p>Score: <span id="score">0</span></p>
+            <button id="next-round-btn" onclick="nextRound()">Next Round</button>
+        </section>
+    </main>
 
     <script src="4Pics1Word.js"></script>
 </body>
 </html>
+
 
