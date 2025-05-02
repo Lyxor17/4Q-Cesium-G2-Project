@@ -87,6 +87,25 @@
             font-size: 0.9em;
             color: #555;
         }
+
+        #home-btn {
+              position: fixed;
+              bottom: 20px;
+              right: 20px;
+              padding: 10px 15px;
+              background-color: #3498db;
+              color: white;
+              border: none;
+              border-radius: 8px;
+              cursor: pointer;
+              box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+              z-index: 999;
+}
+
+        #home-btn:hover {
+              background-color: #2980b9;
+}
+
     </style>
 </head>
 <body>
@@ -138,6 +157,9 @@
             <button id="next-round-btn" onclick="nextRound()">Next Round</button>
         </section>
     </main>
+
+    <button id="home-btn" onclick="goToHomepage()">🏠 Back to Homepage</button>
+
 
     <script src="4Pics1Word.js"></script>
 </body>
