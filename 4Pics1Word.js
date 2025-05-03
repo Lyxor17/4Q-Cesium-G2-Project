@@ -173,6 +173,7 @@ function goToHomepage() {
   showHomepageHighScore();
 }
 
+
 // On page load, if a username exists, show greeting
   document.addEventListener('DOMContentLoaded', () => {
   const storedUsername = localStorage.getItem("username");
