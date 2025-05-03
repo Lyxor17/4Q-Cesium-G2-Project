@@ -1,4 +1,6 @@
 const difficulties = ["easy", "medium", "hard", "extreme"];
+const words = ["movie", "photo", "patch", "bunch", "light", "cloth", "shadow", "island", "battle"];
+
 let currentDifficultyIndex = 0;
 let currentLevel = difficulties[currentDifficultyIndex];
 let currentRound = 0;
