@@ -1,4 +1,3 @@
-// 4Pics1Word.js
 
 // Define the order of difficulties.
 const difficulties = ["easy", "medium", "hard", "extreme"];
