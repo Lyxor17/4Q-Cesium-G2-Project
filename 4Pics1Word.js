@@ -13,7 +13,6 @@ let highScore = parseInt(localStorage.getItem('highscore')) || 0;
 document.addEventListener('DOMContentLoaded', () => {
   updateHighScoreDisplay();
   initializeGameState();
-  showHomepageHighScore();
 });
 
 // Show and update the high score
@@ -42,13 +41,15 @@ function saveUsername() {
     storeGameDataLocally();
   }
 }
+
+// Store game data including username, high score, and expiration date
 function storeGameDataLocally() {
   const username = localStorage.getItem("username") || "guest";
   const highscore = localStorage.getItem("highscore") || "0";
 
   const now = new Date();
   const expires = new Date();
-  expires.setDate(now.getDate() + 30);
+  expires.setDate(now.getDate() + 30); // expiration of 30 days
 
   const gameData = {
     username: username,
@@ -221,5 +222,4 @@ const levels = {
     { images: ["EXTREME/img29.jpg", "EXTREME/img30.jpg", "EXTREME/img31.jpg", "EXTREME/img32.jpg"], answer: "island", hint: "Paradise" },
     { images: ["EXTREME/img33.jpg", "EXTREME/img34.jpg", "EXTREME/img35.jpg", "EXTREME/img36.jpg"], answer: "battle", hint: "Combat" }
   ]
-};
-
+}
