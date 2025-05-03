@@ -162,8 +162,20 @@ function resetGame() {
   document.getElementById("game-container").style.display = "none";
 }
 
+// Show high score on homepage
+function showHomepageHighScore() {
+  const hs = parseInt(localStorage.getItem('highscore')) || 0;
+  document.getElementById("homepage-highscore").textContent = "High Score: " + hs;
+}
+
+// Back to homepage
+function goToHomepage() {
+  resetGame();
+  showHomepageHighScore();
+}
+
 // On page load, if a username exists, show greeting
-document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('DOMContentLoaded', () => {
   const storedUsername = localStorage.getItem("username");
   if (storedUsername) {
     document.getElementById("greeting").textContent = "Welcome back, " + storedUsername + "!";
@@ -171,6 +183,8 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById("username-container").style.display = "block";
     document.getElementById("rules-container").style.display = "block";
     document.getElementById("game-container").style.display = "none";
+
+     showHomepageHighScore();
   }
 
 
