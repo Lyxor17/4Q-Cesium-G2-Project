@@ -186,5 +186,7 @@ function goToHomepage() {
      showHomepageHighScore();
   }
 
+  document.getElementById("back-btn").onclick = goToHomepage;
+
 
 });
