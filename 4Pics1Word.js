@@ -186,7 +186,15 @@ function goToHomepage() {
      showHomepageHighScore();
   }
 
-  document.getElementById("back-btn").onclick = goToHomepage;
+  document.getElementById("back-btn").onclick = function () {
+  document.getElementById("username-container").style.display = "block";
+  document.getElementById("rules-container").style.display = "block";
+  document.getElementById("game-container").style.display = "none";
+  document.getElementById("answer-input").value = "";
+};
+
+score = 0;
+document.getElementById("score").textContent = score;
 
 
 });
