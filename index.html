@@ -86,7 +86,17 @@
             font-size: 0.9em;
             color: #555;
         }
-
+        #homepage-btn {
+            margin: 20px auto 0;
+            display: block;
+            width: 80%;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            border: none;
+            font-weight: bold;
+        }    
+  
     </style>
 </head>
 <body>
@@ -136,6 +146,8 @@
             <p>Score: <span id="score">0</span></p>
             <p id="highscore">High score: 0</p>
             <button id="next-round-btn" onclick="nextRound()">Next Round</button>
+            <button id="homepage-btn" onclick="goToHomepage()">Go to Homepage</button>
+
         </section>
     </main>
 
