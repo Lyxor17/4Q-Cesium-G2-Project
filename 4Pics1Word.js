@@ -1,5 +1,7 @@
 // Define order of difficulties and initialize game state variables.
 const difficulties = ["easy", "medium", "hard", "extreme"];
+const allAnswers = ["movie", "photo", "patch", "bunch", "light", "cloth", "shadow", "island", "battle"];
+
 let currentDifficultyIndex = 0;
 let currentLevel = difficulties[currentDifficultyIndex];
 let currentRound = 0;
@@ -37,7 +39,25 @@ function saveUsername() {
     document.getElementById("storage-info").textContent = `Local Storage - Username: ${username}`;
     resetGameState();
     showGameScreen();
+    storeGameDataLocally();
   }
+}
+function storeGameDataLocally() {
+  const username = localStorage.getItem("username") || "guest";
+  const highscore = localStorage.getItem("highscore") || "0";
+
+  const now = new Date();
+  const expires = new Date();
+  expires.setDate(now.getDate() + 30);
+
+  const gameData = {
+    username: username,
+    highscore: highscore,
+    accessed: now.toISOString(),
+    expires: expires.toISOString()
+  };
+
+  localStorage.setItem("gameData", JSON.stringify(gameData));
 }
 
 // Show the game screen by hiding the username and rules containers
