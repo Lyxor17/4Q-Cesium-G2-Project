@@ -187,7 +187,7 @@ function goToHomepage() {
      showHomepageHighScore();
   }
 
-    function resetGame() {
+  function resetGame() {
   currentDifficultyIndex = 0;
   currentLevel = difficulties[0];
   currentRound = 0;
