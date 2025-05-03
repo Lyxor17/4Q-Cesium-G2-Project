@@ -1,4 +1,3 @@
-
 // Define the order of difficulties.
 const difficulties = ["easy", "medium", "hard", "extreme"];
 let currentDifficultyIndex = 0;
@@ -199,11 +198,6 @@ function goToHomepage() {
   document.getElementById("username-container").style.display = "block";
   document.getElementById("rules-container").style.display = "block";
   document.getElementById("game-container").style.display = "none";
-}
-
-function showHomepageHighScore() {
-  const hs = parseInt(localStorage.getItem('highscore')) || 0;
-  document.getElementById("highscore").textContent = "High Score: " + hs;
 }
 
 
