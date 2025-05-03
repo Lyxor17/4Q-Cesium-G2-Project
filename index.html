@@ -1,10 +1,92 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>4 Pics, 1 Word Game</title>
     <style>
-        <link rel="stylesheet" href="style.css">
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: url(Background.png);
+            padding: 20px;
+        }
+        .container {
+            background: #fff;
+            padding: 40px;
+            border-radius: 20px;
+            border: 8px solid #ff5e62;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            max-width: 90vw;
+            max-height: 90vh;
+            margin: auto;
+            display: none;
+        }
+        #rules-container,
+        #username-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            border: 3px solid #FFC0CB;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 20px auto;
+        }
+        #username-container {
+            max-width: 400px;
+        }
+        #rules-container {
+            max-width: 600px;
+        }
+        input, button {
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 80%;
+        }
+        button {
+            background-color: #ff5e62;
+            color: white;
+            cursor: pointer;
+            border: none;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #ff3b47;
+        }
+        .image-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+        .image-grid img {
+            width: 180px;
+            height: 180px;
+            margin: 10px;
+            border: 6px solid #ff5e62;
+            border-radius: 15px;
+        }
+        ul {
+            text-align: left;
+            display: inline-block;
+            padding: 10px;
+        }
+        ul li {
+            margin: 5px 0;
+            font-weight: bold;
+        }
+        #next-round-btn {
+            margin: 20px auto 0;
+            display: block;
+            width: 80%;
+        }
+        #storage-info {
+            margin-top: 10px;
+            font-style: italic;
+            font-size: 0.9em;
+            color: #555;
+        }
+
     </style>
 </head>
 <body>
@@ -53,12 +135,11 @@
             <p id="feedback"></p>
             <p>Score: <span id="score">0</span></p>
             <p id="highscore">High score: 0</p>
-            <button id="next-round-btn" onclick="nextRound()">Next Round</button> 
-            <button id="back-btn" onclick="goToHomepage()">Back to Homepage</button>
+            <button id="next-round-btn" onclick="nextRound()">Next Round</button>
         </section>
     </main>
 
-    <script src="4Pics1Word.js"></script>
 
+    <script src="4Pics1Word.js"></script>
 </body>
 </html>
