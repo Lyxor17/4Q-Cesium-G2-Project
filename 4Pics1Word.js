@@ -1,4 +1,3 @@
-// Define the order of difficulties.
 const difficulties = ["easy", "medium", "hard", "extreme"];
 let currentDifficultyIndex = 0;
 let currentLevel = difficulties[currentDifficultyIndex];
@@ -6,13 +5,23 @@ let currentRound = 0;
 let score = 0;
 let answered = false;
 
-// Load & display high score from localStorage
 let highScore = parseInt(localStorage.getItem('highscore')) || 0;
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById("highscore").textContent = "High score: " + highScore;
+
+  const storedUsername = localStorage.getItem("username");
+  const expiration = localStorage.getItem("username_expiration");
+  if (storedUsername && expiration) {
+    document.getElementById("greeting").textContent = "Welcome back, " + storedUsername + "!";
+    document.getElementById("storage-info").textContent =
+      "Local Storage - Username: " + storedUsername + " | Expires: " + expiration;
+    document.getElementById("username-container").style.display = "block";
+    document.getElementById("rules-container").style.display = "block";
+    document.getElementById("game-container").style.display = "none";
+    showHomepageHighScore();
+  }
 });
 
-// Update high score if beaten
 function updateHighScore() {
   if (score > highScore) {
     highScore = score;
@@ -21,7 +30,6 @@ function updateHighScore() {
   document.getElementById("highscore").textContent = "High score: " + highScore;
 }
 
-// Each difficulty's rounds:
 const levels = {
   easy: [
     { images: ["EASY/img1.jpg", "EASY/img2.jpg", "EASY/img3.jpg", "EASY/img4.jpg"], answer: "movie", hint: "For entertainment" },
@@ -42,13 +50,11 @@ const levels = {
   ]
 };
 
-// Save username and reset game state (localStorage only)
 function saveUsername() {
   const usernameInput = document.getElementById("username");
   const username = usernameInput.value.trim();
   if (!username) return;
 
-  // Reset game state
   currentDifficultyIndex = 0;
   currentLevel = difficulties[0];
   currentRound = 0;
@@ -57,8 +63,22 @@ function saveUsername() {
   document.getElementById("score").textContent = score;
 
   localStorage.setItem("username", username);
+
+  const now = new Date();
+  const expirationDate = new Date(now.setMonth(now.getMonth() + 1));
+  const formattedExpiration = expirationDate.toLocaleString('en-US', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+    hour: 'numeric',
+    minute: '2-digit'
+  });
+
+  localStorage.setItem("username_expiration", formattedExpiration);
+
   document.getElementById("greeting").textContent = "Welcome, " + username + "!";
-  document.getElementById("storage-info").textContent = "Local Storage - Username: " + username;
+  document.getElementById("storage-info").textContent =
+    "Local Storage - Username: " + username + " | Expires: " + formattedExpiration;
 
   showGameScreen();
 }
@@ -71,40 +91,29 @@ function showGameScreen() {
 }
 
 function loadRound() {
-  // Alert on very first round
   if (currentDifficultyIndex === 0 && currentRound === 0 && !answered) {
     alert("Let's start the game!");
   }
 
   const round = levels[currentLevel][currentRound];
-  ["img1","img2","img3","img4"].forEach((id,i) => {
+  ["img1", "img2", "img3", "img4"].forEach((id, i) => {
     document.getElementById(id).src = round.images[i];
   });
 
-  const inputEl = document.getElementById("answer-input");
-  inputEl.value = "";
-  inputEl.disabled = false;
-  inputEl.focus();
-
+  document.getElementById("answer-input").value = "";
   document.getElementById("feedback").textContent = "";
 
-  const nextBtn = document.getElementById("next-round-btn");
-  nextBtn.disabled = true;
-  setTimeout(() => nextBtn.disabled = false, 500);
-
-  nextBtn.style.display = "block";
   if (currentRound < levels[currentLevel].length - 1) {
-    nextBtn.textContent = "Next Round";
+    document.getElementById("next-round-btn").textContent = "Next Round";
   } else if (currentLevel !== "extreme") {
-    nextBtn.textContent = "Next Level";
+    document.getElementById("next-round-btn").textContent = "Next Level";
   } else {
-    nextBtn.textContent = "Finish Game";
+    document.getElementById("next-round-btn").textContent = "Finish Game";
   }
 }
 
 function checkAnswer() {
-  const inputEl = document.getElementById("answer-input");
-  const answerInput = inputEl.value.toLowerCase().trim();
+  const answerInput = document.getElementById("answer-input").value.toLowerCase().trim();
   const correctAnswer = levels[currentLevel][currentRound].answer;
   const feedback = document.getElementById("feedback");
 
@@ -112,7 +121,6 @@ function checkAnswer() {
     feedback.textContent = "✅ Correct!";
     score += 5;
     answered = true;
-    inputEl.disabled = true;
     document.getElementById("score").textContent = score;
     updateHighScore();
   } else if (!answered) {
@@ -160,45 +168,12 @@ function resetGame() {
   document.getElementById("game-container").style.display = "none";
 }
 
-// Show high score on homepage
 function showHomepageHighScore() {
   const hs = parseInt(localStorage.getItem('highscore')) || 0;
   document.getElementById("homepage-highscore").textContent = "High Score: " + hs;
 }
 
-// Back to homepage
 function goToHomepage() {
   resetGame();
   showHomepageHighScore();
 }
-
-
-// On page load, if a username exists, show greeting
-  document.addEventListener('DOMContentLoaded', () => {
-  const storedUsername = localStorage.getItem("username");
-  if (storedUsername) {
-    document.getElementById("greeting").textContent = "Welcome back, " + storedUsername + "!";
-    document.getElementById("storage-info").textContent = "Local Storage - Username: " + storedUsername;
-    document.getElementById("username-container").style.display = "block";
-    document.getElementById("rules-container").style.display = "block";
-    document.getElementById("game-container").style.display = "none";
-
-     showHomepageHighScore();
-  }
-
-  function resetGame() {
-  currentDifficultyIndex = 0;
-  currentLevel = difficulties[0];
-  currentRound = 0;
-  score = 0;
-  answered = false;
-  document.getElementById("score").textContent = score;
-
-  // Hide the game section and show the homepage and rules
-  document.getElementById("username-container").style.display = "block";
-  document.getElementById("rules-container").style.display = "block";
-  document.getElementById("game-container").style.display = "none";
-}
-
-
-});
