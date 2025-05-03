@@ -156,6 +156,11 @@ function nextRound() {
   }
   loadRound();
 }
+function goToHomepage() {
+  resetGame();
+  showHomepageHighScore();
+}
+
 
 function resetGame() {
   currentDifficultyIndex = 0;
