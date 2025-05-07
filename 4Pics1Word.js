@@ -45,7 +45,7 @@ const levels = {
     { images: ["MEDIUM/img9.jpg", "MEDIUM/img10.jpg", "MEDIUM/img11.jpg", "MEDIUM/img12.jpg"], answer: "patch", hint: "Cover up for wound" },
     { images: ["MEDIUM/img13.jpg", "MEDIUM/img14.jpg", "MEDIUM/img15.jpg", "MEDIUM/img16.jpg"], answer: "bunch", hint: "A group" },
     { images: ["ADDITIONAL/img49.jpg", "ADDITIONAL/img50.jpg", "ADDITIONAL/img51.jpg", "ADDITIONAL/img52.jpg"], answer: "plane", hint: "It flies in the sky and takes you places" },
-    { images: ["ADDITIONAL/img53.jpg", "ADDITIONAL/img54.jpg", "ADDITIONAL/img55.jpg", "ADDITIONAL/img56.jpg"], answer: "crown", hint: "A king or queen wears this" },
+    { images: ["ADDITIONAL/img89.jpg", "ADDITIONAL/img54.jpg", "ADDITIONAL/img55.jpg", "ADDITIONAL/img56.jpg"], answer: "crown", hint: "A king or queen wears this" },
     { images: ["ADDITIONAL/img57.jpg", "ADDITIONAL/img58.jpg", "ADDITIONAL/img59.jpg", "ADDITIONAL/img60.jpg"], answer: "train", hint: "long vehicle" }
   ],
   hard: [
