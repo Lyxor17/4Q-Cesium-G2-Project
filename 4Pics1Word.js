@@ -1,5 +1,5 @@
 const difficulties = ["easy", "medium", "hard", "extreme"];
-const words = ["movie", "photo", "patch", "bunch", "light", "cloth", "shadow", "island", "battle"];
+const words = ["movie", "photo","sun","book","food" "patch", "bunch","plane","crown","train", "light", "cloth","puzzle","fossil,"anchor", "shadow", "island", "battle","metamorphosis","evaporation","camouflage","photosynthesis"];
 
 let currentDifficultyIndex = 0;
 let currentLevel = difficulties[currentDifficultyIndex];
@@ -35,8 +35,11 @@ function updateHighScore() {
 const levels = {
   easy: [
     { images: ["EASY/img1.jpg", "EASY/img2.jpg", "EASY/img3.jpg", "EASY/img4.jpg"], answer: "movie", hint: "For entertainment" },
-    { images: ["EASY/img5.jpg", "EASY/img6.jpg", "EASY/img7.jpg", "EASY/img8.jpg"], answer: "photo", hint: "Taken by camera" }
+    { images: ["EASY/img5.jpg", "EASY/img6.jpg", "EASY/img7.jpg", "EASY/img8.jpg"], answer: "photo", hint: "Taken by camera" },  
+    { images: ["ADDITIONAL/img37.jpg", "ADDITIONAL/img38.jpg", "ADDITIONAL/img39.jpg", "ADDITIONAL/img40.jpg"], answer: "sun", hint: "Need sunscreen" }  
+  
   ],
+  
   medium: [
     { images: ["MEDIUM/img9.jpg", "MEDIUM/img10.jpg", "MEDIUM/img11.jpg", "MEDIUM/img12.jpg"], answer: "patch", hint: "Cover up for wound" },
     { images: ["MEDIUM/img13.jpg", "MEDIUM/img14.jpg", "MEDIUM/img15.jpg", "MEDIUM/img16.jpg"], answer: "bunch", hint: "A group" }
