@@ -1,5 +1,5 @@
 const difficulties = ["easy", "medium", "hard", "extreme"];
-const words = ["movie", "photo","sun","book","food" "patch", "bunch","plane","crown","train", "light", "cloth","puzzle","fossil,"anchor", "shadow", "island", "battle","metamorphosis","evaporation","camouflage","photosynthesis"];
+const words = ["movie", "photo","sun","book","food", "patch", "bunch","plane","crown","train", "light", "cloth","puzzle","fossil,"anchor", "shadow", "island", "battle","metamorphosis","evaporation","camouflage","photosynthesis"];
 
 let currentDifficultyIndex = 0;
 let currentLevel = difficulties[currentDifficultyIndex];
@@ -58,10 +58,10 @@ const levels = {
   extreme: [
     { images: ["EXTREME/img25.jpg", "EXTREME/img26.jpg", "EXTREME/img27.jpg", "EXTREME/img28.jpg"], answer: "shadow", hint: "Opposite of light" },
     { images: ["EXTREME/img29.jpg", "EXTREME/img30.jpg", "EXTREME/img31.jpg", "EXTREME/img32.jpg"], answer: "island", hint: "Paradise" },
-    { images: ["EXTREME/img33.jpg", "EXTREME/img34.jpg", "EXTREME/img35.jpg", "EXTREME/img36.jpg"], answer: "battle", hint: "Combat" }
-    { images: ["ADDITIONAL/img73.jpg", "ADDITIONAL/img74.jpg", "ADDITIONAL/img75.jpg", "ADDITIONAL/img76.jpg"], answer: "metamorphosis", hint: "Change" }
-    { images: ["ADDITIONAL/img77.jpg", "ADDITIONAL/img78.jpg", "ADDITIONAL/img79.jpg", "ADDITIONAL/img80.jpg"], answer: "evaporation", hint: "Water disappears into air" }
-    { images: ["ADDITIONAL/img81.jpg", "ADDITIONAL/img82.jpg", "ADDITIONAL/img83.jpg", "ADDITIONAL/img84.jpg"], answer: "camouflage", hint: "Hide" }
+    { images: ["EXTREME/img33.jpg", "EXTREME/img34.jpg", "EXTREME/img35.jpg", "EXTREME/img36.jpg"], answer: "battle", hint: "Combat" },
+    { images: ["ADDITIONAL/img73.jpg", "ADDITIONAL/img74.jpg", "ADDITIONAL/img75.jpg", "ADDITIONAL/img76.jpg"], answer: "metamorphosis", hint: "Change" },
+    { images: ["ADDITIONAL/img77.jpg", "ADDITIONAL/img78.jpg", "ADDITIONAL/img79.jpg", "ADDITIONAL/img80.jpg"], answer: "evaporation", hint: "Water disappears into air" },
+    { images: ["ADDITIONAL/img81.jpg", "ADDITIONAL/img82.jpg", "ADDITIONAL/img83.jpg", "ADDITIONAL/img84.jpg"], answer: "camouflage", hint: "Hide" },
     { images: ["ADDITIONAL/img85.jpg", "ADDITIONAL/img86.jpg", "ADDITIONAL/img87.jpg", "ADDITIONAL/img88.jpg"], answer: "photosynthesis", hint: "Sunlight to energy" }
   ]
 };
