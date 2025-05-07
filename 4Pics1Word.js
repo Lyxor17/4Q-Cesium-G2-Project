@@ -1,5 +1,5 @@
 const difficulties = ["easy", "medium", "hard", "extreme"];
-const words = ["movie", "photo","sun","book","food", "patch", "bunch","plane","crown","train", "light", "cloth","puzzle","fossil,"anchor", "shadow", "island", "battle","metamorphosis","evaporation","camouflage","photosynthesis"];
+const words = ["movie", "photo", "sun", "book", "food", "patch", "bunch", "plane", "crown", "train", "light", "cloth", "puzzle", "fossil", "anchor", "shadow", "island", "battle", "metamorphosis", "evaporation", "camouflage", "photosynthesis"];
 
 let currentDifficultyIndex = 0;
 let currentLevel = difficulties[currentDifficultyIndex];
