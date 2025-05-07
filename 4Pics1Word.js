@@ -36,22 +36,33 @@ const levels = {
   easy: [
     { images: ["EASY/img1.jpg", "EASY/img2.jpg", "EASY/img3.jpg", "EASY/img4.jpg"], answer: "movie", hint: "For entertainment" },
     { images: ["EASY/img5.jpg", "EASY/img6.jpg", "EASY/img7.jpg", "EASY/img8.jpg"], answer: "photo", hint: "Taken by camera" },  
-    { images: ["ADDITIONAL/img37.jpg", "ADDITIONAL/img38.jpg", "ADDITIONAL/img39.jpg", "ADDITIONAL/img40.jpg"], answer: "sun", hint: "Need sunscreen" }  
-  
+    { images: ["ADDITIONAL/img37.jpg", "ADDITIONAL/img38.jpg", "ADDITIONAL/img39.jpg", "ADDITIONAL/img40.jpg"], answer: "sun", hint: "Need sunscreen"}, 
+    { images: ["ADDITIONAL/img41.jpg", "ADDITIONAL/img42.jpg", "ADDITIONAL/img43.jpg", "ADDITIONAL/img44.jpg"], answer: "book", hint: "Has pages" },
+    { images: ["ADDITIONAL/img45.jpg", "ADDITIONAL/img46.jpg", "ADDITIONAL/img47.jpg", "ADDITIONAL/img48.jpg"], answer: "food", hint: "What do you eat when you're hungry?" }
   ],
   
   medium: [
     { images: ["MEDIUM/img9.jpg", "MEDIUM/img10.jpg", "MEDIUM/img11.jpg", "MEDIUM/img12.jpg"], answer: "patch", hint: "Cover up for wound" },
-    { images: ["MEDIUM/img13.jpg", "MEDIUM/img14.jpg", "MEDIUM/img15.jpg", "MEDIUM/img16.jpg"], answer: "bunch", hint: "A group" }
+    { images: ["MEDIUM/img13.jpg", "MEDIUM/img14.jpg", "MEDIUM/img15.jpg", "MEDIUM/img16.jpg"], answer: "bunch", hint: "A group" },
+    { images: ["ADDITIONAL/img49.jpg", "ADDITIONAL/img50.jpg", "ADDITIONAL/img51.jpg", "ADDITIONAL/img52.jpg"], answer: "plane", hint: "It flies in the sky and takes you places" },
+    { images: ["ADDITIONAL/img53.jpg", "ADDITIONAL/img54.jpg", "ADDITIONAL/img55.jpg", "ADDITIONAL/img56.jpg"], answer: "crown", hint: "A king or queen wears this" },
+    { images: ["ADDITIONAL/img57.jpg", "ADDITIONAL/img58.jpg", "ADDITIONAL/img59.jpg", "ADDITIONAL/img60.jpg"], answer: "train", hint: "long vehicle" }
   ],
   hard: [
     { images: ["HARD/img17.jpg", "HARD/img18.jpg", "HARD/img19.jpg", "HARD/img20.jpg"], answer: "light", hint: "Bright" },
-    { images: ["HARD/img21.jpg", "HARD/img22.jpg", "HARD/img23.jpg", "HARD/img24.jpg"], answer: "cloth", hint: "Wearable" }
+    { images: ["HARD/img21.jpg", "HARD/img22.jpg", "HARD/img23.jpg", "HARD/img24.jpg"], answer: "cloth", hint: "Wearable" },
+    { images: ["ADDITIONAL/img61.jpg", "ADDITIONAL/img62.jpg", "ADDITIONAL/img63.jpg", "ADDITIONAL/img64.jpg"], answer: "puzzle", hint: "Putting pieces together" },
+    { images: ["ADDITIONAL/img65.jpg", "ADDITIONAL/img66.jpg", "ADDITIONAL/img67.jpg", "ADDITIONAL/img68.jpg"], answer: "fossil", hint: "Old remains of creatures found in rocks" },
+    { images: ["ADDITIONAL/img69.jpg", "ADDITIONAL/img70.jpg", "ADDITIONAL/img71.jpg", "ADDITIONAL/img72.jpg"], answer: "anchor", hint: "Heavy metal" }
   ],
   extreme: [
     { images: ["EXTREME/img25.jpg", "EXTREME/img26.jpg", "EXTREME/img27.jpg", "EXTREME/img28.jpg"], answer: "shadow", hint: "Opposite of light" },
     { images: ["EXTREME/img29.jpg", "EXTREME/img30.jpg", "EXTREME/img31.jpg", "EXTREME/img32.jpg"], answer: "island", hint: "Paradise" },
     { images: ["EXTREME/img33.jpg", "EXTREME/img34.jpg", "EXTREME/img35.jpg", "EXTREME/img36.jpg"], answer: "battle", hint: "Combat" }
+    { images: ["ADDITIONAL/img73.jpg", "ADDITIONAL/img74.jpg", "ADDITIONAL/img75.jpg", "ADDITIONAL/img76.jpg"], answer: "metamorphosis", hint: "Change" }
+    { images: ["ADDITIONAL/img77.jpg", "ADDITIONAL/img78.jpg", "ADDITIONAL/img79.jpg", "ADDITIONAL/img80.jpg"], answer: "evaporation", hint: "Water disappears into air" }
+    { images: ["ADDITIONAL/img81.jpg", "ADDITIONAL/img82.jpg", "ADDITIONAL/img83.jpg", "ADDITIONAL/img84.jpg"], answer: "camouflage", hint: "Hide" }
+    { images: ["ADDITIONAL/img85.jpg", "ADDITIONAL/img86.jpg", "ADDITIONAL/img87.jpg", "ADDITIONAL/img88.jpg"], answer: "photosynthesis", hint: "Sunlight to energy" }
   ]
 };
 
