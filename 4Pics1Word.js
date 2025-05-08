@@ -56,11 +56,11 @@ const levels = {
     { images: ["ADDITIONAL/img69.jpg", "ADDITIONAL/img70.jpg", "ADDITIONAL/img71.jpg", "ADDITIONAL/img72.jpg"], answer: "anchor", hint: "Heavy metal" }
   ],
   extreme: [
-    { images: ["EXTREME/img25.jpg", "EXTREME/img26.jpg", "EXTREME/img27.jpg", "EXTREME/img28.jpg"], answer: "shadow", hint: "Opposite of light" },
+    { images: ["EXTREME/img25.jpg", "EXTREME/img26.jpg", "EXTREME/img27.jpg", "EXTREME/img28.jpg"], answer: "shadow", hint: "dark" },
     { images: ["EXTREME/img29.jpg", "EXTREME/img30.jpg", "EXTREME/img31.jpg", "EXTREME/img32.jpg"], answer: "island", hint: "Paradise" },
     { images: ["EXTREME/img33.jpg", "EXTREME/img34.jpg", "EXTREME/img35.jpg", "EXTREME/img36.jpg"], answer: "battle", hint: "Combat" },
     { images: ["ADDITIONAL/img73.jpg", "ADDITIONAL/img74.jpg", "ADDITIONAL/img75.jpg", "ADDITIONAL/img76.jpg"], answer: "metamorphosis", hint: "Change" },
-    { images: ["ADDITIONAL/img77.jpg", "ADDITIONAL/img78.jpg", "ADDITIONAL/img79.jpg", "ADDITIONAL/img80.jpg"], answer: "evaporation", hint: "Water disappears into air" },
+    { images: ["ADDITIONAL/img77.jpg", "ADDITIONAL/img78.jpg", "ADDITIONAL/img79.jpg", "ADDITIONAL/img80.jpg"], answer: "evaporation", hint: "Water ----> air" },
     { images: ["ADDITIONAL/img81.jpg", "ADDITIONAL/img82.jpg", "ADDITIONAL/img83.jpg", "ADDITIONAL/img84.jpg"], answer: "camouflage", hint: "Hide" },
     { images: ["ADDITIONAL/img85.jpg", "ADDITIONAL/img86.jpg", "ADDITIONAL/img87.jpg", "ADDITIONAL/img88.jpg"], answer: "photosynthesis", hint: "Sunlight to energy" }
   ]
