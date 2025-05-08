@@ -51,7 +51,7 @@ const levels = {
   hard: [
     { images: ["HARD/img17.jpg", "HARD/img18.jpg", "HARD/img19.jpg", "HARD/img20.jpg"], answer: "light", hint: "Bright" },
     { images: ["HARD/img21.jpg", "HARD/img22.jpg", "HARD/img23.jpg", "HARD/img24.jpg"], answer: "cloth", hint: "Wearable" },
-    { images: ["ADDITIONAL/img61.jpg", "ADDITIONAL/img62.jpg", "ADDITIONAL/img63.jpg", "ADDITIONAL/img64.jpg"], answer: "puzzle", hint: "Putting pieces together" },
+    { images: ["ADDITIONAL/img61.jpg", "ADDITIONAL/img90.jpg", "ADDITIONAL/img63.jpg", "ADDITIONAL/img64.jpg"], answer: "puzzle", hint: "Putting pieces together" },
     { images: ["ADDITIONAL/img65.jpg", "ADDITIONAL/img66.jpg", "ADDITIONAL/img67.jpg", "ADDITIONAL/img68.jpg"], answer: "fossil", hint: "Old remains of creatures found in rocks" },
     { images: ["ADDITIONAL/img69.jpg", "ADDITIONAL/img70.jpg", "ADDITIONAL/img71.jpg", "ADDITIONAL/img72.jpg"], answer: "anchor", hint: "Heavy metal" }
   ],
